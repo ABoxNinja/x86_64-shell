@@ -5,7 +5,7 @@ kernel.bin: kernel-entry.o kernel.o
 	objcopy -O binary kernel.elf $@
 kernel-entry.o: boot/kernel-entry.s
 	nasm $< -f elf -o $@
-kernel.o: kernel/kernel.c
+kernel.o: kernel/kernel.c $(wildcard drivers/*.h)
 	gcc -m32 -ffreestanding -c $< -o $@
 boot_record.bin: boot/boot_record.s
 	nasm $< -f bin -o $@
