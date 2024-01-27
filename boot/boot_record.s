@@ -12,9 +12,9 @@ call switch_32
 
 jmp $
 
-%include "src/boot/disk.s"
-%include "src/boot/gdt.s"
-%include "src/boot/switch_32.s"
+%include "boot/disk.s"
+%include "boot/gdt.s"
+%include "boot/switch_32.s"
 
 [bits 16]
 load_kernel:
