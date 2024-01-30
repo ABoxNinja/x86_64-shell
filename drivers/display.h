@@ -80,6 +80,16 @@ void print_string(char *string) {
     set_cursor(offset);
 }
 
+void print_nl()
+{
+    int newOffset = move_offset_to_nl(get_cursor());
+    if (newOffset >= MAX_ROWS * MAX_COLS * 2)
+    {
+        newOffset = scroll_ln(newOffset);
+    }
+    set_cursor(newOffset);
+}
+
 void clear_screen()
 {
     for (int i = 0;i<MAX_COLS * MAX_ROWS;++i)
